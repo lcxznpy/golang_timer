@@ -29,7 +29,8 @@ import (
 
 	monitorservice "xtimer/service/monitor"
 
-	"github.com/xiaoxuxiansheng/xtimer/app/migrator"
+	"xtimer/app/migrator"
+
 	"github.com/xiaoxuxiansheng/xtimer/app/monitor"
 	"github.com/xiaoxuxiansheng/xtimer/app/scheduler"
 	"github.com/xiaoxuxiansheng/xtimer/app/webserver"
