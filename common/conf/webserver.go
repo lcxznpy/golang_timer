@@ -1,7 +1,7 @@
 package conf
 
 type WebServerAppConf struct {
-	Port int `yaml:"port"`
+	Port int `mapstructure:"port"`
 }
 
 var defaultWebServerAppConfProvider *WebServerAppConfProvider

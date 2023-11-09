@@ -1,0 +1,2 @@
+2023-11-09T14:38:42.466+0800	ERROR	redis/redis.go:62	Failed to connect to redis, caused by dial tcp6: address 47.102.119.88: no suitable address found
+2023-11-09T14:44:16.065+0800	INFO	redis/redis.go:40	success connected to redis

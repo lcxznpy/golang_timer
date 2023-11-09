@@ -1,11 +1,11 @@
 package conf
 
 type MigratorAppConf struct {
-	WorkersNum                 int `yaml:"workersNum"`
-	MigrateStepMinutes         int `yaml:"migrateStepMinutes"`
-	MigrateSucessExpireMinutes int `yaml:"migrateSuccessExpireMinutes"`
-	MigrateTryLockMinutes      int `yaml:"migrateTryLockMinutes"`
-	TimerDetailCacheMinutes    int `yaml:"timerDetailCacheMinutes"`
+	WorkersNum                 int `mapstructure:"workersNum"`
+	MigrateStepMinutes         int `mapstructure:"migrateStepMinutes"`
+	MigrateSucessExpireMinutes int `mapstructure:"migrateSuccessExpireMinutes"`
+	MigrateTryLockMinutes      int `mapstructure:"migrateTryLockMinutes"`
+	TimerDetailCacheMinutes    int `mapstructure:"timerDetailCacheMinutes"`
 }
 
 var defaultMigratorAppConfProvider *MigratorAppConfProvider

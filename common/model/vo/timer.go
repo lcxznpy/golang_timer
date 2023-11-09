@@ -64,6 +64,7 @@ func NewGetTimerResp(timer *Timer, codeMsg CodeMsg) *GetTimerResp {
 	}
 }
 
+// 创建定时器参数、
 type Timer struct {
 	ID              uint               `json:"id,omitempty"`
 	App             string             `json:"app,omitempty" binding:"required"`             // 定时器定义名称
@@ -73,6 +74,7 @@ type Timer struct {
 	NotifyHTTPParam *NotifyHTTPParam   `json:"notifyHTTPParam,omitempty" binding:"required"` // http 回调参数
 }
 
+// 执行任务 回调参数
 type NotifyHTTPParam struct {
 	Method string            `json:"method,omitempty" binding:"required"` // POST,GET 方法
 	URL    string            `json:"url,omitempty" binding:"required"`    // URL 路径

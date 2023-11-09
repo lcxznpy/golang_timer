@@ -90,10 +90,10 @@ var gConf GloablConf = GloablConf{
 }
 
 type GloablConf struct {
-	Migrator  *MigratorAppConf  `yaml:"migrator"`
-	Mysql     *MySQLConfig      `yaml:"mysql"`
-	Redis     *RedisConfig      `yaml:"redis"`
-	Trigger   *TriggerAppConf   `yaml:"trigger"`
-	Scheduler *SchedulerAppConf `yaml:"scheduler"`
-	WebServer *WebServerAppConf `yaml:"webServer"`
+	Migrator  *MigratorAppConf  `mapstructure:"migrator"`
+	Mysql     *MySQLConfig      `mapstructure:"mysql"`
+	Redis     *RedisConfig      `mapstructure:"redis"`
+	Trigger   *TriggerAppConf   `mapstructure:"trigger"`
+	Scheduler *SchedulerAppConf `mapstructure:"scheduler"`
+	WebServer *WebServerAppConf `mapstructure:"webServer"`
 }

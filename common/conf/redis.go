@@ -2,15 +2,15 @@ package conf
 
 // RedisConfig 缓存配置
 type RedisConfig struct {
-	Network            string `yaml:"network"`
-	Address            string `yaml:"address"`
-	Password           string `yaml:"password"`
-	MaxIdle            int    `yaml:"maxIdle"`
-	IdleTimeoutSeconds int    `yaml:"idleTimeout"`
+	Network            string `mapstructure:"network"`
+	Address            string `mapstructure:"address"`
+	Password           string `mapstructure:"password"`
+	MaxIdle            int    `mapstructure:"maxIdle"`
+	IdleTimeoutSeconds int    `mapstructure:"idleTimeout"`
 	// 连接池最大存活的连接数.
-	MaxActive int `yaml:"maxActive"`
+	MaxActive int `mapstructure:"maxActive"`
 	// 当连接数达到上限时，新的请求是等待还是立即报错.
-	Wait bool `yaml:"wait"`
+	Wait bool `mapstructure:"wait"`
 }
 
 type RedisConfigProvider struct {

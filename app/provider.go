@@ -31,9 +31,11 @@ import (
 
 	"xtimer/app/migrator"
 
-	"github.com/xiaoxuxiansheng/xtimer/app/monitor"
-	"github.com/xiaoxuxiansheng/xtimer/app/scheduler"
-	"github.com/xiaoxuxiansheng/xtimer/app/webserver"
+	"xtimer/app/webserver"
+
+	"xtimer/app/scheduler"
+
+	"xtimer/app/monitor"
 )
 
 var (

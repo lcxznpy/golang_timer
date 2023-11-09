@@ -1,9 +1,7 @@
 package trigger
 
 import (
-	"context"
 	"xtimer/common/conf"
-	"xtimer/common/model/po"
 	dao "xtimer/dao/task"
 )
 
@@ -22,5 +20,5 @@ func NewTaskService(dao *dao.TaskDAO, cache *dao.TaskCache, confPrivder *conf.Sc
 }
 
 type taskDAO interface {
-	GetTasks(ctx context.Context, opts ...dao.Option) ([]*po.Task, error)
+	//GetTasks(ctx context.Context, opts ...dao.Option) ([]*po.Task, error)
 }

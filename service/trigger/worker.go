@@ -1,17 +1,14 @@
 package trigger
 
 import (
-	"context"
-	"time"
 	"xtimer/common/conf"
-	"xtimer/common/model/vo"
 	"xtimer/pkg/pool"
 	"xtimer/pkg/redis"
 	"xtimer/service/executor"
 )
 
 type taskService interface {
-	GetTasksByTime(ctx context.Context, key string, bucket int, start, end time.Time) ([]*vo.Task, error)
+	//GetTasksByTime(ctx context.Context, key string, bucket int, start, end time.Time) ([]*vo.Task, error)
 }
 
 type confProvider interface {
