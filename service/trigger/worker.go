@@ -1,6 +1,7 @@
 package trigger
 
 import (
+	"context"
 	"xtimer/common/conf"
 	"xtimer/pkg/pool"
 	"xtimer/pkg/redis"
@@ -31,4 +32,8 @@ func NewWorker(executor *executor.Worker, task *TaskService, lockService *redis.
 		pool:         pool.NewGoWorkerPool(confProvider.Get().WorkersNum),
 		confProvider: confProvider,
 	}
+}
+
+func (w *Worker) Start(ctx context.Context) {
+	w.executor.Start(ctx)
 }

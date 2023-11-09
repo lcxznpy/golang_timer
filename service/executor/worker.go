@@ -1,6 +1,7 @@
 package executor
 
 import (
+	"context"
 	taskdao "xtimer/dao/task"
 	"xtimer/pkg/bloom"
 	"xtimer/pkg/promethus"
@@ -23,4 +24,8 @@ func NewWorker(timerService *TimerService, taskDAO *taskdao.TaskDAO, httpClient 
 		bloomFilter:  bloomFilter,
 		reporter:     reporter,
 	}
+}
+
+func (w *Worker) Start(ctx context.Context) {
+
 }

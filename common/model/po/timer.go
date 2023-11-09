@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// Timer 定时器定义
+// Timer 定时器定义  可存入数据库的结构体
 type Timer struct {
 	gorm.Model
 	App             string `gorm:"column:app;NOT NULL" json:"app,omitempty"`                             // 定时器定义名称

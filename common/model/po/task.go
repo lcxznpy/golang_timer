@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// Task 运行流水记录
+// Task 运行流水记录  可存入数据库的结构体
 type Task struct {
 	gorm.Model
 	App      string    `gorm:"column:app;NOT NULL"`           // 定义ID

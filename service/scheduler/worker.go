@@ -39,3 +39,8 @@ func NewWorker(trigger *trigger.Worker, redisClient *redis.Client, appConfProvid
 		minuteBuckets:   make(map[string]int),
 	}
 }
+
+// scheduler调度器 启动
+func (w *Worker) Start(ctx context.Context) {
+	w.trigger.Start(ctx)
+}

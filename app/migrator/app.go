@@ -3,6 +3,7 @@ package migrator
 import (
 	"context"
 	"sync"
+	"xtimer/pkg/log"
 	service "xtimer/service/migrator"
 )
 
@@ -23,16 +24,16 @@ func NewMigratorApp(worker *service.Worker) *MigratorApp {
 	return &m
 }
 
-//func (m *MigratorApp) Start() {
-//	m.Do(func() {
-//		log.InfoContext(m.ctx, "migrator starting")
-//		go func() {
-//			if err := m.worker.start(); err != nil {
-//				log.ErrorContextf(m.ctx, "start migrator worker failed err : %s", err)
-//			}
-//		}()
-//	})
-//}
+func (m *MigratorApp) Start() {
+	m.Do(func() {
+		log.InfoContext(m.ctx, "migrator starting")
+		go func() {
+			if err := m.worker.Start(m.ctx); err != nil {
+				log.ErrorContextf(m.ctx, "start migrator worker failed err : %s", err)
+			}
+		}()
+	})
+}
 
 func (m *MigratorApp) Stop() {
 	m.stop()

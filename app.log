@@ -1,2 +1,19 @@
 2023-11-09T14:38:42.466+0800	ERROR	redis/redis.go:62	Failed to connect to redis, caused by dial tcp6: address 47.102.119.88: no suitable address found
 2023-11-09T14:44:16.065+0800	INFO	redis/redis.go:40	success connected to redis
+2023-11-09T15:53:57.981+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-09T15:53:57.997+0800	INFO	migrator/worker.go:49	migrator ticking...
+2023-11-09T15:53:58.017+0800	INFO	redis/redis.go:40	success connected to redis
+2023-11-09T15:57:23.102+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-09T15:57:23.117+0800	INFO	migrator/worker.go:50	migrator ticking...
+2023-11-09T15:57:23.348+0800	INFO	redis/redis.go:40	success connected to redis
+2023-11-09T15:57:23.374+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 15, err:locker is acquiered by others
+2023-11-09T16:11:39.747+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-09T16:11:39.762+0800	INFO	migrator/worker.go:50	migrator ticking...
+2023-11-09T16:11:39.780+0800	INFO	redis/redis.go:40	success connected to redis
+2023-11-09T16:16:39.601+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-09T16:16:39.618+0800	INFO	migrator/worker.go:50	migrator ticking...
+2023-11-09T16:16:39.659+0800	INFO	redis/redis.go:40	success connected to redis
+2023-11-09T16:16:39.685+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 16, err:locker is acquiered by others
+2023-11-09T16:23:04.778+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-09T16:23:04.794+0800	INFO	migrator/worker.go:50	migrator ticking...
+2023-11-09T16:23:04.813+0800	INFO	redis/redis.go:40	success connected to redis

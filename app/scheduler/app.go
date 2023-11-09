@@ -9,7 +9,7 @@ import (
 )
 
 type workerService interface {
-	//Start(context.Context) error
+	Start(context.Context) error
 }
 
 type confProvider interface {
@@ -38,11 +38,11 @@ func (w *WorkerApp) Start() {
 
 func (w *WorkerApp) start() {
 	log.InfoContext(w.ctx, "scheduler worker_app starting")
-	//go func() {
-	//	if err := w.service.Start(w.ctx); err != nil {
-	//		log.ErrorContextf(w.ctx, "worker start failed, err: %v", err)
-	//	}
-	//}()
+	go func() {
+		if err := w.service.Start(w.ctx); err != nil {
+			log.ErrorContextf(w.ctx, "worker start failed, err: %v", err)
+		}
+	}()
 }
 
 func (w *WorkerApp) Stop() {
