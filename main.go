@@ -9,12 +9,12 @@ import (
 
 func main() {
 	migratorApp := app.GetMigratorApp()
-	schedulerApp := app.GetSchedulerApp()
+	//schedulerApp := app.GetSchedulerApp()
 	webServer := app.GetWebServer()
 
 	migratorApp.Start()
-	schedulerApp.Start()
-	defer schedulerApp.Stop()
+	//schedulerApp.Start()
+	//defer schedulerApp.Stop()
 	webServer.Start()
 
 	quit := make(chan os.Signal, 1)

@@ -32,3 +32,7 @@ func NewTimerService(timerDAO *timerdao.TimerDAO, taskDAO *taskdao.TaskDAO, conf
 		taskDAO:      taskDAO,
 	}
 }
+
+func (t *TimerService) Start(ctx context.Context) {
+
+}

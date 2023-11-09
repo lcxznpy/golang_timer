@@ -26,3 +26,13 @@ func (t *TaskDAO) GetTasks(ctx context.Context, opts ...Option) ([]*po.Task, err
 	var tasks []*po.Task
 	return tasks, db.Model(&po.Task{}).Scan(&tasks).Error
 }
+
+// 执行器 : 判断任务是否被重复执行
+func (t *TaskDAO) GetTask(ctx context.Context, opts ...Option) (*po.Task, error) {
+	db := t.client.DB.WithContext(ctx)
+	for _, opt := range opts {
+		db = opt(db)
+	}
+	var tasks *po.Task
+	return tasks, db.First(&tasks).Error
+}

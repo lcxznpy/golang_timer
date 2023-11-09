@@ -51,3 +51,8 @@ func (t *TaskCache) GetTableName(task *po.Task) string {
 	maxBucket := t.confProvider.Get().BucketsNum
 	return fmt.Sprintf("%s_%d", task.RunTimer.Format(consts.MinuteFormat), int64(task.TimerID)%int64(maxBucket))
 }
+
+// 触发器 : 从redis中获取 1m内的任务时间切片并打包成任务
+//func (t *TaskCache) GetTasksByTime(ctx context.Context, table string, start, end int64) ([]*vo.Task, error) {
+//
+//}

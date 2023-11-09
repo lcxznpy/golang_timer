@@ -43,7 +43,7 @@ func (w *Worker) Start(ctx context.Context) error {
 	conf := w.appConfigProvider.Get()
 	//ticker := time.NewTicker(time.Duration(conf.MigrateStepMinutes) * time.Minute)
 	//defer ticker.Stop()
-	// range ticker.C
+	//range ticker.C
 
 	// 每隔一段时间获取一次定时器
 	for i := 0; i < 1; i++ {
@@ -53,7 +53,7 @@ func (w *Worker) Start(ctx context.Context) error {
 			return nil
 		default:
 		}
-		// 尝试获取分布式锁
+		// 尝试获取当前时间段的分布式锁
 		locker := w.lockService.GetDistributionLock(utils.GetMigratorLockKey(utils.GetStartHour(time.Now())))
 		if err := locker.Lock(ctx, int64(conf.MigrateTryLockMinutes)*int64(time.Minute/time.Second)); err != nil {
 			log.ErrorContextf(ctx, "migrator get lock failed,key:%s, err:%v", utils.GetMigratorLockKey(utils.GetStartHour(time.Now())), err)

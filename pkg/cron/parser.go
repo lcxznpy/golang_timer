@@ -58,8 +58,13 @@ func (c *CronParser) NextsBetween(cron string, start, end time.Time) ([]time.Tim
 		if next.UnixNano() < 0 {
 			return nil, fmt.Errorf("fail to parse time from cron: %s", cron)
 		}
-		nexts = append(nexts, next)
-		start = next
+		if next.Before(end) {
+			nexts = append(nexts, next)
+			start = next
+		} else {
+			break
+		}
+
 	}
 	return nexts, nil
 }
