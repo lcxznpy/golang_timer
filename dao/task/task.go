@@ -36,3 +36,7 @@ func (t *TaskDAO) GetTask(ctx context.Context, opts ...Option) (*po.Task, error)
 	var tasks *po.Task
 	return tasks, db.First(&tasks).Error
 }
+
+func (t *TaskDAO) UpdateTask(ctx context.Context, task *po.Task) error {
+	return t.client.DB.WithContext(ctx).Updates(task).Error
+}

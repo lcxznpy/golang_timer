@@ -23,6 +23,16 @@ func (t *TimerDAO) CreateTimer(ctx context.Context, timer *po.Timer) (uint, erro
 	return timer.ID, t.client.DB.WithContext(ctx).Create(timer).Error
 }
 
+// 从数据库获取一个定时器
+func (t *TimerDAO) GetTimer(ctx context.Context, opts ...Option) (*po.Timer, error) {
+	db := t.client.DB.WithContext(ctx)
+	for _, opt := range opts {
+		db = opt(db)
+	}
+	var timer po.Timer
+	return &timer, db.First(&timer).Error
+}
+
 // 迁移 : 从数据库中获取 可执行的 定时器切片
 func (t *TimerDAO) GetTimers(ctx context.Context, opts ...Option) ([]*po.Timer, error) {
 	db := t.client.DB.WithContext(ctx).Model(&po.Timer{})

@@ -55,6 +55,7 @@ func (w *Worker) Start(ctx context.Context) error {
 		}
 		// 尝试获取当前时间段的分布式锁
 		locker := w.lockService.GetDistributionLock(utils.GetMigratorLockKey(utils.GetStartHour(time.Now())))
+		// 20min 分布式锁expire
 		if err := locker.Lock(ctx, int64(conf.MigrateTryLockMinutes)*int64(time.Minute/time.Second)); err != nil {
 			log.ErrorContextf(ctx, "migrator get lock failed,key:%s, err:%v", utils.GetMigratorLockKey(utils.GetStartHour(time.Now())), err)
 			continue

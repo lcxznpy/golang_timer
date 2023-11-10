@@ -90,7 +90,7 @@ func (w *Worker) handleBatch(ctx context.Context, key string, start, end time.Ti
 	for _, task := range tasks {
 		timerIDs = append(timerIDs, task.TimerID)
 	}
-	不断从trigge的协程池中获取goroutine 执行任务
+	//不断从trigge的协程池中获取goroutine 执行任务
 	for _,task := range tasks{
 		task := task
 		if err := w.pool.Submit(func() {
