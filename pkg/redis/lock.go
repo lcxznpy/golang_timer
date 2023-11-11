@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"xtimer/common/utils"
-	"xtimer/pkg/log"
 
 	"github.com/gomodule/redigo/redis"
 )
@@ -50,7 +49,7 @@ func (r *ReentrantDistributeLock) Lock(ctx context.Context, expireSeconds int64)
 	if err != nil {
 		return err
 	}
-	log.InfoContext(ctx, reply.(int64))
+	//log.InfoContext(ctx, reply.(int64))
 	re, _ := reply.(int64)
 	if re != 1 {
 		return errors.New("locker is acquiered by others")

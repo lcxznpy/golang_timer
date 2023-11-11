@@ -37,7 +37,7 @@ func getRedisPool(config *conf.RedisConfig) *redis.Pool {
 			if err != nil {
 				return nil, err
 			}
-			log.Infof("success connected to redis")
+			//log.Infof("success connected to redis")
 			return c, nil
 		},
 		MaxActive: config.MaxActive,

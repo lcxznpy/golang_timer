@@ -53,6 +53,21 @@ func (t *TaskCache) GetTableName(task *po.Task) string {
 }
 
 // 触发器 : 从redis中获取 1m内的任务时间切片并打包成任务
-//func (t *TaskCache) GetTasksByTime(ctx context.Context, table string, start, end int64) ([]*vo.Task, error) {
-//
-//}
+func (t *TaskCache) GetTasksByTime(ctx context.Context, table string, start, end int64) ([]*po.Task, error) {
+	//从redis中时间片对应的zset中获取当前时间片范围的任务id切片
+	timerIDUnixS, err := t.client.ZrangeByScore(ctx, table, start, end-1)
+	if err != nil {
+		return nil, err
+	}
+
+	// 封装任务
+	tasks := make([]*po.Task, 0, len(timerIDUnixS))
+	for _, timerIDUnix := range timerIDUnixS {
+		timeID, unix, _ := utils.SplitTimerIDUnix(timerIDUnix)
+		tasks = append(tasks, &po.Task{
+			TimerID:  timeID,
+			RunTimer: time.UnixMilli(unix),
+		})
+	}
+	return tasks, nil
+}

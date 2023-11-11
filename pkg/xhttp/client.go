@@ -11,8 +11,6 @@ import (
 	"time"
 )
 
-// 执行任务的http请求
-
 // 单次读取限制 4M
 const (
 	defaultReadLimitBytes                = 4 * 1024 * 1024

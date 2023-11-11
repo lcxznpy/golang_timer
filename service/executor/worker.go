@@ -129,6 +129,7 @@ func (w *Worker) postProcess(ctx context.Context, resp map[string]interface{}, e
 
 	task.Output = string(respBody)
 	if execErr != nil {
+		log.InfoContextf(ctx, "http request error : %v", execErr)
 		task.Status = consts.Failed.ToInt()
 	} else {
 		task.Status = consts.Successed.ToInt()

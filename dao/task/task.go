@@ -18,6 +18,7 @@ func NewTaskDAO(client *mysql.Client) *TaskDAO {
 }
 
 // 迁移 : 获取定时任务 准备给redis
+// 执行器 : 用于返回数据库中定时器的状态
 func (t *TaskDAO) GetTasks(ctx context.Context, opts ...Option) ([]*po.Task, error) {
 	db := t.client.DB.WithContext(ctx)
 	for _, opt := range opts {

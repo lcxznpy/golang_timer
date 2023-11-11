@@ -1,14 +1,14 @@
 scheduler:
   workersNum: 100
-  bucketsNum: 20
+  bucketsNum: 5
   tryLockSeconds: 70
   tryLockGapMilliSeconds: 100
   successExpireSeconds: 130
 trigger:
-  zrangeGapSeconds: 1
+  zrangeGapSeconds: 20
   workersNum: 10000
 webserver:
-  port: 8092
+  port: 8888
 migrator:
   workersNum: 1000
   migrateStepMinutes: 60

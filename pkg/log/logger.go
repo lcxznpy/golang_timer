@@ -49,7 +49,7 @@ func NewOptions(opts ...Option) Options {
 		LogLevel:   "info",
 		FileName:   "app.log",
 		MaxAge:     10,
-		MaxSize:    100,
+		MaxSize:    8,
 		MaxBackups: 3,
 		Compress:   true,
 	}

@@ -83,7 +83,8 @@ func (w *Worker) migrate(ctx context.Context) error {
 	now := time.Now()
 	fmt.Println(now, "?????????????????????????????????")
 	// 获取定时器 的任务时间区间[start,end]，只有符合定时器的cron匹配且在这个区间内的时间任务才会被迁移
-	start := utils.GetStartHour(now.Add(time.Duration(conf.MigrateStepMinutes) * time.Minute))
+	// .Add(time.Duration(conf.MigrateStepMinutes) * time.Minute)
+	start := utils.GetStartHour(now)
 	end := utils.GetStartHour(now.Add(2 * time.Duration(conf.MigrateStepMinutes) * time.Minute))
 
 	// 迁移可以慢慢来，不着急，根据定时器批量创建定时任务

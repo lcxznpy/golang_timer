@@ -11,6 +11,7 @@ import (
 	"xtimer/common/model/vo"
 	"xtimer/common/utils"
 	"xtimer/pkg/concurrency"
+	"xtimer/pkg/log"
 	"xtimer/pkg/pool"
 	"xtimer/pkg/redis"
 	"xtimer/service/executor"
@@ -66,12 +67,53 @@ func (w *Worker) Work(ctx context.Context, minuteBucketKey string, ack func()) e
 
 	var wg sync.WaitGroup
 	wg.Add(1)
+	// 执行定时器第一次触发之前到现在的任务
 	go func() {
 		defer wg.Done()
 		if err := w.handleBatch(ctx, minuteBucketKey, startTime, startTime.Add(time.Duration(conf.ZRangeGapSeconds)*time.Second)); err != nil {
 			notifier.Put(err)
 		}
 	}()
+	// 定时器执行1s之后的定时任务
+	for range ticker.C {
+		//读取 notifier 内置chan 的error
+		select {
+		case e := <-notifier.GetChan():
+			err, _ = e.(error)
+			return err
+		default:
+		}
+
+		if startTime = startTime.Add(time.Duration(conf.ZRangeGapSeconds) * time.Second); startTime.Equal(endTime) || startTime.After(endTime) {
+			break
+		}
+
+		// log.InfoContextf(ctx, "start time: %v", startTime)
+
+		wg.Add(1)
+		go func(startTime time.Time) {
+			// log.InfoContextf(ctx, "trigger_2 start: %v", time.Now())
+			// defer func() {
+			// 	log.InfoContextf(ctx, "trigger_2 end: %v", time.Now())
+			// }()
+			defer wg.Done()
+			if err := w.handleBatch(ctx, minuteBucketKey, startTime, startTime.Add(time.Duration(conf.ZRangeGapSeconds)*time.Second)); err != nil {
+				notifier.Put(err)
+			}
+		}(startTime)
+	}
+
+	wg.Wait()
+	select {
+	case e := <-notifier.GetChan():
+		err, _ = e.(error)
+		return err
+	default:
+	}
+
+	ack()
+	log.InfoContextf(ctx, "ack success, key: %s", minuteBucketKey)
+	return nil
 }
 
 func (w *Worker) handleBatch(ctx context.Context, key string, start, end time.Time) error {
@@ -91,12 +133,17 @@ func (w *Worker) handleBatch(ctx context.Context, key string, start, end time.Ti
 		timerIDs = append(timerIDs, task.TimerID)
 	}
 	//不断从trigge的协程池中获取goroutine 执行任务
-	for _,task := range tasks{
+	for _, task := range tasks {
 		task := task
 		if err := w.pool.Submit(func() {
-			if err := w.executor.Work(ctx,)
-		})
+			if err := w.executor.Work(ctx, utils.UnionTimerIDUnix(task.TimerID, task.RunTimer.UnixMilli())); err != nil {
+				log.ErrorContextf(ctx, "executor work failed, err: %v", err)
+			}
+		}); err != nil {
+			return err
+		}
 	}
+	return nil
 }
 
 func getBucket(slice string) (int, error) {

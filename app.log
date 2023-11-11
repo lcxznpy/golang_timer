@@ -1,145 +1,77 @@
-2023-11-09T14:38:42.466+0800	ERROR	redis/redis.go:62	Failed to connect to redis, caused by dial tcp6: address 47.102.119.88: no suitable address found
-2023-11-09T14:44:16.065+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T15:53:57.981+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T15:53:57.997+0800	INFO	migrator/worker.go:49	migrator ticking...
-2023-11-09T15:53:58.017+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T15:57:23.102+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T15:57:23.117+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T15:57:23.348+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T15:57:23.374+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 15, err:locker is acquiered by others
-2023-11-09T16:11:39.747+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T16:11:39.762+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T16:11:39.780+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T16:16:39.601+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T16:16:39.618+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T16:16:39.659+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T16:16:39.685+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 16, err:locker is acquiered by others
-2023-11-09T16:23:04.778+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T16:23:04.794+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T16:23:04.813+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T20:57:36.106+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T20:57:36.123+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T20:57:36.123+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T20:57:36.123+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T20:57:36.135+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T20:57:36.138+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T20:57:36.157+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 20, err:locker is acquiered by others
-2023-11-09T20:59:24.216+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T20:59:28.344+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T20:59:28.359+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T20:59:28.359+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T20:59:28.359+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T20:59:28.371+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T20:59:28.371+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T20:59:28.386+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 20, err:locker is acquiered by others
-2023-11-09T20:59:28.387+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 20, err:locker is acquiered by others
-2023-11-09T21:00:26.088+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:00:34.200+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:00:34.215+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:00:34.215+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:00:34.215+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:00:34.228+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:00:34.228+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:00:34.247+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:01:30.315+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:01:34.261+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:01:34.279+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:01:34.279+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:01:34.279+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:01:34.290+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:01:34.290+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:01:34.307+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:01:34.359+0800	ERROR	migrator/worker.go:94	migrator batch create records for timer:1 failed,err:Error 1062 (23000): Duplicate entry '1-2023-11-09 22:00:59' for key 'task.idx_def_timer'
-2023-11-09T21:10:27.763+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:11:57.015+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:11:57.031+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:11:57.031+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:11:57.031+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:11:57.045+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:11:57.047+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:11:57.066+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:13:08.275+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:18:26.594+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:18:26.610+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:18:26.610+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:18:26.610+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:18:26.622+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:18:26.624+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:18:26.637+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:18:26.641+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:18:48.314+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:18:57.394+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:18:57.410+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:18:57.410+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:18:57.410+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:18:57.421+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:18:57.423+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:18:57.440+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:20:35.168+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:20:38.743+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:20:38.759+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:20:38.759+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:20:38.759+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:20:38.769+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:20:38.771+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:20:38.790+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:20:38.827+0800	ERROR	migrator/worker.go:94	migrator batch create records for timer:1 failed,err:Error 1062 (23000): Duplicate entry '1-2024-01-01 01:00:59' for key 'task.idx_def_timer'
-2023-11-09T21:21:59.410+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:22:02.855+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:22:02.871+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:22:02.871+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:22:02.871+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:22:02.882+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:22:02.883+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:22:02.902+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:24:22.046+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:24:36.324+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:24:36.341+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:24:36.341+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:24:36.341+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:24:36.352+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:24:36.353+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:24:36.370+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:30:47.323+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:30:57.750+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:30:57.766+0800	INFO	scheduler/app.go:40	scheduler worker_app starting
-2023-11-09T21:30:57.766+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:30:57.766+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:30:57.777+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:30:57.779+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:30:57.796+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:30:57.797+0800	INFO	redis/lock.go:53	0
-2023-11-09T21:30:57.797+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:34:08.878+0800	WARN	scheduler/app.go:50	scheduler worker_app is stopped
-2023-11-09T21:34:18.716+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:34:18.733+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:34:18.746+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:34:18.770+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:42:14.323+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:42:14.340+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:42:14.353+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:42:14.377+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:47:51.204+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:47:51.221+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:47:51.232+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:47:51.251+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:49:13.073+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:49:13.098+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:49:23.860+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:49:23.878+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:49:23.891+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:49:23.910+0800	INFO	redis/lock.go:53	0
-2023-11-09T21:49:23.910+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:50:30.432+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:50:30.448+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:50:30.460+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:50:30.482+0800	INFO	redis/lock.go:53	1
-2023-11-09T21:51:27.095+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:51:27.111+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:51:27.125+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:51:27.143+0800	INFO	redis/lock.go:53	0
-2023-11-09T21:51:27.143+0800	ERROR	migrator/worker.go:59	migrator get lock failed,key:migrator_lock_2023-11-09 21, err:locker is acquiered by others
-2023-11-09T21:52:09.063+0800	INFO	migrator/app.go:29	migrator starting
-2023-11-09T21:52:09.081+0800	INFO	migrator/worker.go:50	migrator ticking...
-2023-11-09T21:52:09.094+0800	INFO	redis/redis.go:40	success connected to redis
-2023-11-09T21:52:09.117+0800	INFO	redis/lock.go:53	1
+2023-11-11T18:48:28.105+0800	INFO	migrator/app.go:29	migrator starting
+2023-11-11T18:48:28.124+0800	INFO	scheduler/app.go:35	worker app is starting
+2023-11-11T18:48:28.124+0800	INFO	migrator/worker.go:50	migrator ticking...
+2023-11-11T18:48:28.251+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_4
+2023-11-11T18:48:28.262+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:47_3
+2023-11-11T18:48:28.263+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_1
+2023-11-11T18:48:28.265+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:47_2
+2023-11-11T18:48:28.266+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:47_0
+2023-11-11T18:48:28.267+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_3
+2023-11-11T18:48:28.266+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_2
+2023-11-11T18:48:28.266+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_0
+2023-11-11T18:48:28.266+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:47_1
+2023-11-11T18:48:28.269+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:47_4
+2023-11-11T18:48:28.307+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:48:48.306+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:49:00.056+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_0
+2023-11-11T18:49:00.056+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_2
+2023-11-11T18:49:00.057+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_3
+2023-11-11T18:49:00.057+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_4
+2023-11-11T18:49:00.058+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_1
+2023-11-11T18:49:28.262+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:48_4, err: can not expire without ownership of locker
+2023-11-11T18:49:28.263+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:48_4
+2023-11-11T18:49:28.274+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:47_3, err: can not expire without ownership of locker
+2023-11-11T18:49:28.274+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:47_3
+2023-11-11T18:49:28.278+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:47_4, err: can not expire without ownership of locker
+2023-11-11T18:49:28.279+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:47_4
+2023-11-11T18:49:28.279+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:47_1, err: can not expire without ownership of locker
+2023-11-11T18:49:28.279+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:47_1
+2023-11-11T18:49:28.279+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:48_1, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:48_2, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:48_2
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:48_1
+2023-11-11T18:49:28.279+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:47_0, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:47_2, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:47_0
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:47_2
+2023-11-11T18:49:28.280+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:48_0, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:48_0
+2023-11-11T18:49:28.280+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:48_3, err: can not expire without ownership of locker
+2023-11-11T18:49:28.280+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:48_3
+2023-11-11T18:49:28.443+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_3
+2023-11-11T18:49:28.473+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:49:28.735+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_2
+2023-11-11T18:49:29.344+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_4
+2023-11-11T18:49:30.341+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_1
+2023-11-11T18:49:30.451+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_0
+2023-11-11T18:49:38.256+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_4
+2023-11-11T18:49:38.349+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_0
+2023-11-11T18:49:38.349+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_1
+2023-11-11T18:49:38.350+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_3
+2023-11-11T18:49:38.354+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:48_2
+2023-11-11T18:49:38.380+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:49:48.485+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:49:58.387+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:50:00.054+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:50_0
+2023-11-11T18:50:00.056+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:50_1
+2023-11-11T18:50:00.058+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:50_2
+2023-11-11T18:50:00.059+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:50_3
+2023-11-11T18:50:00.060+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:50_4
+2023-11-11T18:50:00.069+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:49_3, err: can not expire without ownership of locker
+2023-11-11T18:50:00.070+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:49_3
+2023-11-11T18:50:00.070+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:49_1, err: can not expire without ownership of locker
+2023-11-11T18:50:00.070+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:49_1
+2023-11-11T18:50:00.070+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:49_4, err: can not expire without ownership of locker
+2023-11-11T18:50:00.070+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:49_4
+2023-11-11T18:50:00.070+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:49_2, err: can not expire without ownership of locker
+2023-11-11T18:50:00.071+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:49_2
+2023-11-11T18:50:00.070+0800	ERROR	scheduler/worker.go:107	expire lock failed, lock key: time_bucket_lock_2023-11-11 18:49_0, err: can not expire without ownership of locker
+2023-11-11T18:50:00.071+0800	INFO	trigger/worker.go:115	ack success, key: 2023-11-11 18:49_0
+2023-11-11T18:50:00.095+0800	WARN	executor/timer.go:118	get timer from local cache failed, timerID: 3
+2023-11-11T18:50:00.140+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_0
+2023-11-11T18:50:10.062+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_3
+2023-11-11T18:50:10.065+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_2
+2023-11-11T18:50:10.153+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_0
+2023-11-11T18:50:10.153+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_4
+2023-11-11T18:50:10.153+0800	INFO	scheduler/worker.go:103	get scheduler lock success, key: time_bucket_lock_2023-11-11 18:49_1
+2023-11-11T18:50:17.834+0800	WARN	scheduler/app.go:45	worker app is stopped
