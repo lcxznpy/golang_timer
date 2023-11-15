@@ -77,3 +77,12 @@ func (t *TimerDAO) DoWithLock(ctx context.Context, id uint, do func(ctx context.
 		return do(ctx, NewTimerDAO(mysql.NewClient(tx)), &timer)
 	})
 }
+
+func (t *TimerDAO) Count(ctx context.Context, opts ...Option) (int64, error) {
+	db := t.client.DB.WithContext(ctx).Model(&po.Timer{})
+	for _, opt := range opts {
+		db = opt(db)
+	}
+	var cnt int64
+	return cnt, db.Debug().Count(&cnt).Error
+}

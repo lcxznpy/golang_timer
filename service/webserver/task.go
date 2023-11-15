@@ -38,3 +38,11 @@ func (t *TaskService) GetTasks(ctx context.Context, req *vo.GetTasksReq) ([]*vo.
 	}
 	return vo.NewTasks(tasks), total, nil
 }
+
+func (t *TaskService) GetTask(ctx context.Context, id uint) (*vo.Task, error) {
+	task, err := t.dao.GetTask(ctx, dao.WithTaskID(id))
+	if err != nil {
+		return nil, err
+	}
+	return vo.NewTask(task), nil
+}

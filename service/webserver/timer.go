@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"sort"
 	"time"
 	"xtimer/common/conf"
 	"xtimer/common/consts"
@@ -95,13 +96,28 @@ func (t *TimerService) GetTimer(ctx context.Context, id uint) (*vo.Timer, error)
 	return vo.NewTimer(pTimer)
 }
 
-func (t *TimerService) BatchCreateRecords(ctx context.Context, tasks []*po.Task) error {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (t *TimerService) GetAppTimers(ctx context.Context, req *vo.GetAppTimersReq) ([]*vo.Timer, int64, error) {
+	total, err := t.dao.Count(ctx, timerdao.WithApp(req.App))
+	if err != nil {
+		return nil, -1, err
+	}
 
+	offset, limit := req.Get()
+	if total <= int64(offset) {
+		return []*vo.Timer{}, total, nil
+	}
+
+	timers, err := t.dao.GetTimers(ctx, timerdao.WithApp(req.App), timerdao.WithPageLimit(offset, limit), timerdao.WithDesc())
+	if err != nil {
+		return nil, -1, err
+	}
+
+	sort.Slice(timers, func(i, j int) bool {
+		return timers[i].ID > timers[j].ID
+	})
+
+	vTimers, err := vo.NewTimers(timers)
+	return vTimers, total, err
 }
 
 // 激活定时器
@@ -160,9 +176,28 @@ func (t *TimerService) UnableTimer(ctx context.Context, app string, id uint) err
 	return t.dao.DoWithLock(ctx, id, do)
 }
 
-func (t *TimerService) Count(ctx context.Context, opts ...timerdao.Option) (int64, error) {
-	//TODO implement me
-	panic("implement me")
+func (t *TimerService) GetTimersByName(ctx context.Context, req *vo.GetTimersByNameReq) ([]*vo.Timer, int64, error) {
+	total, err := t.dao.Count(ctx, timerdao.WithApp(req.App), timerdao.WithFuzzyName(req.FuzzyName))
+	if err != nil {
+		return nil, -1, err
+	}
+
+	offset, limit := req.Get()
+	if total <= int64(offset) {
+		return []*vo.Timer{}, total, nil
+	}
+
+	timers, err := t.dao.GetTimers(ctx, timerdao.WithApp(req.App), timerdao.WithPageLimit(offset, limit), timerdao.WithFuzzyName(req.FuzzyName))
+	if err != nil {
+		return nil, -1, err
+	}
+
+	sort.Slice(timers, func(i, j int) bool {
+		return timers[i].ID > timers[j].ID
+	})
+
+	vTimers, err := vo.NewTimers(timers)
+	return vTimers, total, err
 }
 
 type confProvider interface {
