@@ -151,7 +151,7 @@ func (t *TimerService) EnableTimer(ctx context.Context, app string, id uint) err
 		if err := t.taskCache.BatchCreateTasks(ctx, tasks, start, end); err != nil {
 			return err
 		}
-		timer.Status = consts.Unabled.ToInt()
+		timer.Status = consts.Enabled.ToInt()
 		return dao.UpdateTimer(ctx, timer)
 
 	}

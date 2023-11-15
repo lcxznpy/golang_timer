@@ -41,12 +41,12 @@ func NewWorker(timerDAO *timerdao.TimerDAO, taskDAO *taskdao.TaskDAO, taskCache 
 // migrator 启动
 func (w *Worker) Start(ctx context.Context) error {
 	conf := w.appConfigProvider.Get()
-	//ticker := time.NewTicker(time.Duration(conf.MigrateStepMinutes) * time.Minute)
-	//defer ticker.Stop()
+	ticker := time.NewTicker(time.Duration(conf.MigrateStepMinutes) * time.Minute)
+	defer ticker.Stop()
 	//range ticker.C
 
 	// 每隔一段时间获取一次定时器
-	for i := 0; i < 1; i++ {
+	for range ticker.C {
 		log.InfoContext(ctx, "migrator ticking...")
 		select {
 		case <-ctx.Done():

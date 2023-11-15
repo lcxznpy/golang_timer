@@ -17,7 +17,8 @@ migrator:
   timerDetailCacheMinutes: 2
 mysql:
   ### 必填
-  dsn: "root:dhxdl666@tcp(47.102.119.88:3306)/timer?charset=utf8mb4&parseTime=True&loc=Local"
+  ### aliyun : "root:dhxdl666@tcp(47.102.119.88:3306)/timer?charset=utf8mb4&parseTime=True&loc=Local"
+  dsn: "root:dhxdl666@tcp(127.0.0.1:3306)/timer?charset=utf8mb4&parseTime=True&loc=Local"
   maxOpenConns: 100
   maxIdleConns: 50
 pool:
@@ -28,8 +29,9 @@ pool:
 redis:
   network: tcp
   ## 必填
-  address: "47.102.119.88:16379"
-  password: "dhxdl666"
+  ## aliyun  "47.102.119.88:16379"    pass: "dhxdl666"
+  address: "127.0.0.1:6379"
+  password: ""
   maxIdle: 2000
   idleTimeout: 10
   maxActive: 5000

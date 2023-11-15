@@ -27,7 +27,7 @@ func NewTaskApp(service *service.TaskService) *TaskApp {
 
 func (t *TaskApp) GetTasks(c *gin.Context) {
 	var req vo.GetTasksReq
-	if err := c.BindJSON(&req); err != nil {
+	if err := c.Bind(&req); err != nil {
 		c.JSON(http.StatusBadRequest, vo.NewCodeMsg(-1, fmt.Sprintf("[get tasks] bind req failed, err: %v", err)))
 		return
 	}

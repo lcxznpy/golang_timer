@@ -71,7 +71,7 @@ func (t *TimerApp) UpdateTimer(c *gin.Context) {
 // 获取定时器信息
 func (t *TimerApp) GetTimer(c *gin.Context) {
 	var req vo.TimerReq
-	if err := c.BindJSON(&req); err != nil {
+	if err := c.Bind(&req); err != nil {
 		c.JSON(http.StatusBadRequest, vo.NewCodeMsg(-1, fmt.Sprintf("[get timer] bind req failed, err: %v", err)))
 		return
 	}
@@ -86,7 +86,7 @@ func (t *TimerApp) GetTimer(c *gin.Context) {
 // 根据app 获取timer
 func (t *TimerApp) GetAppTimers(c *gin.Context) {
 	var req vo.GetAppTimersReq
-	if err := c.BindJSON(&req); err != nil {
+	if err := c.Bind(&req); err != nil {
 		c.JSON(http.StatusBadRequest, vo.NewCodeMsg(-1, fmt.Sprintf("[get app timers] bind req failed, err: %v", err)))
 		return
 	}
@@ -101,7 +101,7 @@ func (t *TimerApp) GetAppTimers(c *gin.Context) {
 // 根据 app 指定的name查询定时器
 func (t *TimerApp) GetTimersByName(c *gin.Context) {
 	var req vo.GetTimersByNameReq
-	if err := c.BindJSON(&req); err != nil {
+	if err := c.Bind(&req); err != nil {
 		c.JSON(http.StatusBadRequest, vo.NewCodeMsg(-1, fmt.Sprintf("[get timers by name] bind req failed, err: %v", err)))
 		return
 	}
