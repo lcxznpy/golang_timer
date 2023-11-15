@@ -48,6 +48,7 @@ func (w *Worker) Work(ctx context.Context, timeIDUnixKey string) error {
 
 	// 幂等去重，通过该任务的 执行时间点 和  定时器的id与执行时间点拼接的string 找布隆过滤器
 	// 如果布隆过滤器中有当前的hash 值，说明该任务可能已经被执行过了，再去数据库里面查查该任务到底有没有被执行
+	// 布隆过滤器的 key是每天的时间  timerID和unix执行时间 经过hash后 形成offset
 	if exist, err := w.bloomFilter.Exist(ctx, utils.GetTaskBloomFilterKey(utils.GetDayStr(time.UnixMilli(unix))), timeIDUnixKey); err != nil {
 		log.WarnContextf(ctx, "bloom filter check failed, start to check db, "+
 			"bloom key: %s, timerIDUnixKey: %s, err: %v, exist: %t",

@@ -67,22 +67,22 @@ func (s *Server) RegisterBaseRouter() {
 // timer router
 // todo : timer router handler need initialize
 func (s *Server) RegisterTimerRouter() {
-	s.timerRouter.GET("/def")
+	s.timerRouter.GET("/def", s.timerApp.GetTimer)
 	s.timerRouter.POST("/def", s.timerApp.CreateTimer)
-	s.timerRouter.DELETE("/def")
-	s.timerRouter.PATCH("/def")
+	s.timerRouter.DELETE("/def", s.timerApp.DeleteTimer)
+	s.timerRouter.PATCH("/def", s.timerApp.UpdateTimer)
 
-	s.timerRouter.GET("/defs")
-	s.timerRouter.GET("/defsByName")
+	s.timerRouter.GET("/defs", s.timerApp.GetAppTimers)
+	s.timerRouter.GET("/defsByName", s.timerApp.GetTimersByName)
 
-	s.timerRouter.POST("/enable")
-	s.timerRouter.POST("/unable")
+	s.timerRouter.POST("/enable", s.timerApp.EnableTimer)
+	s.timerRouter.POST("/unable", s.timerApp.UnableTimer)
 }
 
 // task router
-// todo : task router handler need initialize
+
 func (s *Server) RegisterTaskRouter() {
-	s.taskRouter.GET("/records")
+	s.taskRouter.GET("/records", s.taskApp.GetTasks)
 }
 
 // mock router

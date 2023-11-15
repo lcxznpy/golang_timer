@@ -43,7 +43,7 @@ func (f *Filter) Set(ctx context.Context, key, val string, expireSeconds int64) 
 	// 算出两个 hash函数的val，分别set
 	rawVal1, rawVal2 := f.encryptor1.Encrypt(val), f.encryptor2.Encrypt(val)
 
-	_, err := f.client.Transaction(ctx, redis.NewSetCommand(key, int32(rawVal1%math.MaxInt32), 1),
+	_, err := f.client.Transaction(ctx, redis.NewSetBitCommand(key, int32(rawVal1%math.MaxInt32), 1),
 		redis.NewSetBitCommand(key, int32(rawVal2%math.MaxInt32), 1))
 
 	if !existed {

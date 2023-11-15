@@ -41,3 +41,12 @@ func (t *TaskDAO) GetTask(ctx context.Context, opts ...Option) (*po.Task, error)
 func (t *TaskDAO) UpdateTask(ctx context.Context, task *po.Task) error {
 	return t.client.DB.WithContext(ctx).Updates(task).Error
 }
+
+func (t *TaskDAO) Count(ctx context.Context, opts ...Option) (int64, error) {
+	db := t.client.DB.WithContext(ctx).Model(&po.Task{})
+	for _, opt := range opts {
+		db = opt(db)
+	}
+	var cnt int64
+	return cnt, db.Count(&cnt).Error
+}

@@ -1,12 +1,18 @@
 package webserver
 
 import (
+	"context"
+	"fmt"
+	"net/http"
+	"xtimer/common/model/vo"
 	service "xtimer/service/webserver"
+
+	"github.com/gin-gonic/gin"
 )
 
 type taskService interface {
-	//GetTask(ctx context.Context, id uint) (*vo.Task, error)
-	//GetTasks(ctx context.Context, req *vo.GetTasksReq) ([]*vo.Task, int64, error)
+	GetTask(ctx context.Context, id uint) (*vo.Task, error)
+	GetTasks(ctx context.Context, req *vo.GetTasksReq) ([]*vo.Task, int64, error)
 }
 
 type TaskApp struct {
@@ -17,4 +23,14 @@ func NewTaskApp(service *service.TaskService) *TaskApp {
 	return &TaskApp{
 		service: service,
 	}
+}
+
+func (t *TaskApp) GetTasks(c *gin.Context) {
+	var req vo.GetTasksReq
+	if err := c.BindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, vo.NewCodeMsg(-1, fmt.Sprintf("[get tasks] bind req failed, err: %v", err)))
+		return
+	}
+	tasks, total, err := t.service.GetTasks(c.Request.Context(), &req)
+	c.JSON(http.StatusOK, vo.NewGetTasksResp(tasks, total, vo.NewCodeMsgWithErr(err)))
 }
