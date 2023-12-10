@@ -4,7 +4,6 @@ import (
 	"context"
 	"sync"
 
-	"xtimer/common/conf"
 	"xtimer/pkg/log"
 	service "xtimer/service/scheduler"
 )
@@ -49,6 +48,6 @@ type workerService interface {
 	Start(context.Context) error
 }
 
-type confProvider interface {
-	Get() *conf.SchedulerAppConf
-}
+//type confProvider interface {
+//	Get() *conf.SchedulerAppConf
+//}

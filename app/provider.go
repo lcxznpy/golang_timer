@@ -1,6 +1,9 @@
 package app
 
 import (
+	"context"
+	"xtimer/pkg/log"
+
 	"go.uber.org/dig"
 
 	"xtimer/common/conf"
@@ -53,51 +56,56 @@ func init() {
 }
 
 func provideConfig(c *dig.Container) {
-	c.Provide(conf.DefaultMysqlConfProvider)
-	c.Provide(conf.DefaultSchedulerAppConfProvider)
-	c.Provide(conf.DefaultTriggerAppConfProvider)
-	c.Provide(conf.DefaultWebServerAppConfProvider)
-	c.Provide(conf.DefaultRedisConfigProvider)
-	c.Provide(conf.DefaultMigratorAppConfProvider)
+	err := c.Provide(conf.DefaultMysqlConfProvider)
+	err = c.Provide(conf.DefaultSchedulerAppConfProvider)
+	err = c.Provide(conf.DefaultTriggerAppConfProvider)
+	err = c.Provide(conf.DefaultWebServerAppConfProvider)
+	err = c.Provide(conf.DefaultRedisConfigProvider)
+	err = c.Provide(conf.DefaultMigratorAppConfProvider)
+	log.InfoContextf(context.Background(), "errors : %v", err)
 }
 
 func providePKG(c *dig.Container) {
-	c.Provide(bloom.NewFilter)
-	c.Provide(hash.NewMurmur3Encryptor)
-	c.Provide(hash.NewSHA1Encryptor)
-	c.Provide(redis.GetClient)
-	c.Provide(mysql.GetClient)
-	c.Provide(cron.NewCronParser)
-	c.Provide(xhttp.NewJSONClient)
-	c.Provide(promethus.GetReporter)
+	err := c.Provide(bloom.NewFilter)
+	err = c.Provide(hash.NewMurmur3Encryptor)
+	err = c.Provide(hash.NewSHA1Encryptor)
+	err = c.Provide(redis.GetClient)
+	err = c.Provide(mysql.GetClient)
+	err = c.Provide(cron.NewCronParser)
+	err = c.Provide(xhttp.NewJSONClient)
+	err = c.Provide(promethus.GetReporter)
+	log.InfoContextf(context.Background(), "errors : %v", err)
 }
 
 func provideDAO(c *dig.Container) {
-	c.Provide(timerdao.NewTimerDAO)
-	c.Provide(taskdao.NewTaskDAO)
-	c.Provide(taskdao.NewTaskCache)
+	err := c.Provide(timerdao.NewTimerDAO)
+	err = c.Provide(taskdao.NewTaskDAO)
+	err = c.Provide(taskdao.NewTaskCache)
+	log.InfoContextf(context.Background(), "errors : %v", err)
 }
 
 func provideService(c *dig.Container) {
-	c.Provide(migratorservice.NewWorker)
-	c.Provide(migratorservice.NewWorker)
-	c.Provide(webservice.NewTaskService)
-	c.Provide(webservice.NewTimerService)
-	c.Provide(executorservice.NewTimerService)
-	c.Provide(executorservice.NewWorker)
-	c.Provide(triggerservice.NewWorker)
-	c.Provide(triggerservice.NewTaskService)
-	c.Provide(schedulerservice.NewWorker)
-	c.Provide(monitorservice.NewWorker)
+	err := c.Provide(migratorservice.NewWorker)
+	err = c.Provide(migratorservice.NewWorker)
+	err = c.Provide(webservice.NewTaskService)
+	err = c.Provide(webservice.NewTimerService)
+	err = c.Provide(executorservice.NewTimerService)
+	err = c.Provide(executorservice.NewWorker)
+	err = c.Provide(triggerservice.NewWorker)
+	err = c.Provide(triggerservice.NewTaskService)
+	err = c.Provide(schedulerservice.NewWorker)
+	err = c.Provide(monitorservice.NewWorker)
+	log.InfoContextf(context.Background(), "errors : %v", err)
 }
 
 func provideApp(c *dig.Container) {
-	c.Provide(migrator.NewMigratorApp)
-	c.Provide(webserver.NewTaskApp)
-	c.Provide(webserver.NewTimerApp)
-	c.Provide(webserver.NewServer)
-	c.Provide(scheduler.NewWorkerApp)
-	c.Provide(monitor.NewMonitorApp)
+	err := c.Provide(migrator.NewMigratorApp)
+	err = c.Provide(webserver.NewTaskApp)
+	err = c.Provide(webserver.NewTimerApp)
+	err = c.Provide(webserver.NewServer)
+	err = c.Provide(scheduler.NewWorkerApp)
+	err = c.Provide(monitor.NewMonitorApp)
+	log.InfoContextf(context.Background(), "errors : %v", err)
 }
 
 func GetSchedulerApp() *scheduler.WorkerApp {
