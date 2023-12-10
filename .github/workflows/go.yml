@@ -47,4 +47,4 @@ jobs:
       with:
           context: .
           push: true
-          tags: registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:$IMAGE_TAG
+          tags: registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:v1
