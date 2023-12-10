@@ -40,8 +40,8 @@ jobs:
         username: "${{ secrets.REGISTORY_USERNAME }}" #容器服务用户名
         password: "${{ secrets.REGISTORY_PASSWORD }}" # 容器服务密码
     - name: Build and Push Docker Image
-       env:
-        IMAGE_TAG: ${{ github.sha }} # 用于标记容器版本号
-       run: |
+      env:
+         IMAGE_TAG: ${{ github.sha }} # 用于标记容器版本号
+      run: |
          docker build -t registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:$IMAGE_TAG .
          docker push registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:$IMAGE_TAG
