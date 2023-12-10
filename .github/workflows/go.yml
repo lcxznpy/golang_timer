@@ -1,0 +1,52 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  myci:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.19'
+
+    - name: Build
+      run: go build -v ./...
+      
+    - name: golangci-lint
+      uses: golangci/golangci-lint-action@v3
+      with:
+          version: v1.54
+
+    - name: Run Gosec Security Scanner
+      uses: securego/gosec@master
+      with:
+        # we let the report trigger content trigger a failure using the GitHub Security features.
+        args: '-no-fail -fmt sarif -out results.sarif ./...'
+
+    - name: Test
+      run: go test -v ./...
+    - name: Login to Aliyun Container Registry (ACR)
+      uses: aliyun/acr-login@v1
+      with:
+        login-server: "${{ secrets.REGISTORY_REGISTORY }}" # 镜像容器服务的登录地址
+        region-id: cn-shanghai # 镜像容器服务的登录地址
+        username: "${{ secrets.REGISTORY_USERNAME }}" #容器服务用户名
+        password: "${{ secrets.REGISTORY_PASSWORD }}" # 容器服务密码
+    - name: Build and Push Docker Image
+      env:
+        IMAGE_TAG: ${{ github.sha }} # 容器版本号
+      run: |
+        docker build -t registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:$IMAGE_TAG
+        docker push registry.cn-shanghai.aliyuncs.com/go_xtimer/xtimer:$IMAGE_TAG
