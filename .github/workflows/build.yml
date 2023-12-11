@@ -12,7 +12,7 @@ jobs:
         id: go
 
       - name: Check out code into the Go module directory
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Get dependencies
         run: |
@@ -27,10 +27,10 @@ jobs:
             pwd
 
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
-            name: drone_test
-            path: /home/runner/work/drone_test/drone_test
+            name: build_test
+            path: /home/runner/work/build_test
 
     dockerfile:
       name: Build Image
@@ -39,10 +39,10 @@ jobs:
       steps:
 
       - name: Get artifacts
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v3
         with:
-            name: drone_test
-            path: /home/runner/work/drone_test/drone_test
+            name: build_test
+            path: /home/runner/work/build_test
 
       - name: Build & Publish to Registry
         uses: wuhan005/publish-docker-action@master
