@@ -15,7 +15,7 @@ jobs:
         run: |
           DOCKER_IMAGE=${{ secrets.REGISTORY_USERNAME }}/${GITHUB_REPOSITORY#*/}
           ACR_DOCKER_IMAGE="registry.cn-shanghai.aliyuncs.com/${DOCKER_IMAGE}"
-          VERSION=nightly-${GITHUB_SHA::8}
+          VERSION=${GITHUB_SHA::8}
           # If this is git tag, use the tag name as a docker tag
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
