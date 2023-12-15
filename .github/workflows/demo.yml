@@ -42,6 +42,7 @@ jobs:
         with:
           name: output-log-file
       - name: cat file
-        run: cat output-log-file
+        shell: bash
+        run: cat output.log
       
         
