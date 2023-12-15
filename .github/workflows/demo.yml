@@ -41,5 +41,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
+      - name: cat file
+        run: cat output-log-file
       
         
