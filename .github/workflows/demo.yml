@@ -34,6 +34,7 @@ jobs:
         name: output-log-file
         path: output.log
   qaq:
+    needs: myci
     runs-on: ubantu-latest
     steps:
       - name: download files
